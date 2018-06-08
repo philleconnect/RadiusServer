@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+  freeradius:
+    build: . #use "/Radius" if you copy this to your main docker-compose-file!
+    ports:
+     - "1812:1812/udp"
+     - "1813:1813"
+     - "18120:18120"
+    env_file:
+     - ./settings.env
+    #volumes:
+    # - "./clients.conf:/etc/raddb/clients.conf"
+    # - "./users:/etc/raddb/users"
+#    networks:
+#      philleconnect:
+#
+networks:
+    default:
+        external:
+            name: servercontainers_philleconnect
