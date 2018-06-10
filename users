@@ -1,2 +1,5 @@
-bob    Cleartext-Password := "hello"
-       Reply-Message := "Hello, %{User-Name}"
+# static users may be included here
+
+# Example:
+#bob    Cleartext-Password := "hello"
+#       Reply-Message := "Hello, %{User-Name}"
