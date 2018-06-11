@@ -1,5 +1,12 @@
-# static users may be included here
+DEFAULT LDAP-Group == "teachers", Auth-Type := Accept
+        Reply-Message = "OK You are a member of the required group"
+DEFAULT LDAP-Group != "teachers", Auth-Type := Reject
+        Reply-Message = "OOPS You are not a member of the required group"
 
+#DEFAULT Auth-Type := LDAP
+#Fall-Through = 1
+
+# static users may be included here:
 # Example:
 #bob    Cleartext-Password := "hello"
 #       Reply-Message := "Hello, %{User-Name}"

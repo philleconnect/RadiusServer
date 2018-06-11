@@ -3,12 +3,13 @@ ldap {
         port = 389
         identity = 'cn=admin,dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0'
         password = SLAPD_PASSWORD
-        base_dn = 'ou=users,dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0'
+        base_dn = 'dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0'
         update {
                 control:Password-With-Header    += 'userPassword'
         }
         user {
-                base_dn = "${..base_dn}"
+                base_dn = "ou=users,${..base_dn}"
+                base_filter = '(objectClass=posixAccount)'
                 filter = "(uid=%{%{Stripped-User-Name}:-%{User-Name}})"
                 sasl {
                 }
@@ -17,35 +18,35 @@ ldap {
         #
         #  User membership checking.
         #
+        #groupmembership_filter = (&(objectClass=posixGroup)(memberUid=%{Stripped-User-Name:-%{User-Name}}))
+        #groupname_attribute = "cn"
         group {
-                base_dn = "${..base_dn}"
+                base_dn = "ou=groups,${..base_dn}"
                 filter = '(objectClass=posixGroup)'
                 membership_attribute = 'memberOf'
+                membership_filter = "(memberUid=%{%{Stripped-User-Name}:-%{User-Name}})"
         }
 
-        accounting {
-                reference = "%{tolower:type.%{Acct-Status-Type}}"
-
-                type {
-                        start {
-                                update {
-                                        description := "Online at %S"
-                                }
-                        }
-
-                        interim-update {
-                                update {
-                                        description := "Last seen at %S"
-                                }
-                        }
-
-                        stop {
-                                update {
-                                        description := "Offline at %S"
-                                }
-                        }
-                }
-        }
+#        accounting {
+#                reference = "%{tolower:type.%{Acct-Status-Type}}"
+#                type {
+#                        start {
+#                                update {
+#                                        description := "Online at %S"
+#                                }
+#                        }
+#                        interim-update {
+#                                update {
+#                                        description := "Last seen at %S"
+#                                }
+#                        }
+#                        stop {
+#                                update {
+#                                        description := "Offline at %S"
+#                                }
+#                        }
+#                }
+#        }
 
         #
         #  LDAP connection-specific options.

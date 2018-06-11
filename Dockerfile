@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends freeradius free
 COPY clients.conf /root/clients.conf
 COPY users /root/users
 COPY ldap /root/ldap
+RUN cat /root/clients.conf >> /etc/freeradius/3.0/clients.conf
+RUN cat /root/users >> /etc/freeradius/3.0/users
 
 COPY entrypoint.sh /
 

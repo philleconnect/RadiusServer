@@ -33,12 +33,10 @@ sed -i "s|SLAPD_DOMAIN0|$SLAPD_DOMAIN0|g" /root/ldap
 sed -i "s|SLAPD_DOMAIN1|$SLAPD_DOMAIN1|g" /root/ldap
 cp -r /root/ldap /etc/freeradius/3.0/mods-enabled/ldap
 
-sed -i "s|RADIUS_LISTEN_IP_RANGE|$RADIUS_LISTEN_IP_RANGE|g" /root/clients.conf
-sed -i "s|RADIUS_PASSWORD|$RADIUS_PASSWORD|g" /root/clients.conf
-cat /root/clients.conf >> /etc/freeradius/3.0/clients.conf
-cat /root/users >> /etc/freeradius/3.0/users
+sed -i "s|RADIUS_LISTEN_IP_RANGE|$RADIUS_LISTEN_IP_RANGE|g" /etc/freeradius/3.0/clients.conf
+sed -i "s|RADIUS_PASSWORD|$RADIUS_PASSWORD|g" /etc/freeradius/3.0/clients.conf
+#sed -i "s|RADIUS_PASSWORD_STUDENTS|$RADIUS_PASSWORD_STUDENTS|g" /etc/freeradius/3.0/clients.conf
 
-#service freeradius start
 freeradius -f
-
-while true; do sleep 1; done # keep container running for debugging...
+#service freeradius start
+#while true; do sleep 1; done # keep container running for debugging...
