@@ -1,9 +1,9 @@
 ldap {
         server = 'ldap'
         port = 389
-        identity = 'cn=admin,dc=ldap,dc=philleconnect'
-        password = your_ldap_password
-        base_dn = 'ou=users,dc=ldap,dc=philleconnect'
+        identity = 'cn=admin,dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0'
+        password = SLAPD_PASSWORD
+        base_dn = 'ou=users,dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0'
         update {
                 control:Password-With-Header    += 'userPassword'
         }
