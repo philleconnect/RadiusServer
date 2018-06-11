@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends freeradius free
 
 COPY clients.conf /root/clients.conf
 COPY users /root/users
-COPY ldapmod.conf /root/ldap
+COPY ldap /root/ldap
 
 COPY entrypoint.sh /
 

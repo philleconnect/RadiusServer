@@ -26,17 +26,12 @@ if [[ -z "$SLAPD_DOMAIN1" ]]; then
     echo -n"I am using 'ldap'"
     SLAPD_DOMAIN1='ldap'
 fi
-if [[ -z "$SLAPD_ORGANIZATION" ]]; then
-    echo -n"SLAPD_ORGANIZATION not set."
-    echo -n"I am using 'My School'"
-    SLAPD_ORGANIZATION='My School'
-fi
 
 # set the environment variables for slapd:
 sed -i "s|SLAPD_PASSWORD|$SLAPD_PASSWORD|g" /root/ldap
 sed -i "s|SLAPD_DOMAIN0|$SLAPD_DOMAIN0|g" /root/ldap
 sed -i "s|SLAPD_DOMAIN1|$SLAPD_DOMAIN1|g" /root/ldap
-cp /root/ldap /etc/freeradius/3.0/mods-enabled/ldap
+cp -r /root/ldap /etc/freeradius/3.0/mods-enabled/ldap
 
 sed -i "s|RADIUS_LISTEN_IP_RANGE|$RADIUS_LISTEN_IP_RANGE|g" /root/clients.conf
 sed -i "s|RADIUS_PASSWORD|$RADIUS_PASSWORD|g" /root/clients.conf
