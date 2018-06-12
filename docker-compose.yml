@@ -14,8 +14,8 @@ services:
      - "18120:18120"
     env_file:
      - ./settings.env
-    networks:
-      - philleconnect
+#    networks:
+#      - philleconnect
 
 networks:
     default:
