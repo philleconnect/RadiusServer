@@ -5,7 +5,7 @@ services:
   freeradius:
     build: . #use "/Radius" if you copy this to your main docker-compose-file!
     #image: philleconnect/radiusserver:latest
-    container-name: radiusserver
+    container_name: radiusserver
     hostname: radiusserver
     restart: always
     ports:
