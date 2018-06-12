@@ -37,6 +37,14 @@ sed -i "s|RADIUS_LISTEN_IP_RANGE|$RADIUS_LISTEN_IP_RANGE|g" /etc/freeradius/3.0/
 sed -i "s|RADIUS_PASSWORD|$RADIUS_PASSWORD|g" /etc/freeradius/3.0/clients.conf
 #sed -i "s|RADIUS_PASSWORD_STUDENTS|$RADIUS_PASSWORD_STUDENTS|g" /etc/freeradius/3.0/clients.conf
 
+if ( $RADIUS_REQUIRE_TEACHER ); then
+    cp /root/users /etc/freeradius/3.0/users
+    echo "I configured radius to authenticate only teachers"
+else
+    echo "I configured radius to authenticate any user"
+fi
+
+
 freeradius -f
 #service freeradius start
 #while true; do sleep 1; done # keep container running for debugging...
