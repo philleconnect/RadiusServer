@@ -4,6 +4,7 @@ services:
 
   freeradius:
     build: . #use "/Radius" if you copy this to your main docker-compose-file!
+    #image: philleconnect/radiusserver:v0.9beta
     restart: always
     ports:
      - "1812:1812/udp"
