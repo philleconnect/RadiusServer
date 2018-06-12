@@ -37,9 +37,17 @@ sed -i "s|RADIUS_LISTEN_IP_RANGE|$RADIUS_LISTEN_IP_RANGE|g" /etc/freeradius/3.0/
 sed -i "s|RADIUS_PASSWORD|$RADIUS_PASSWORD|g" /etc/freeradius/3.0/clients.conf
 
 if ( $RADIUS_REQUIRE_TEACHER ); then
-    cp /root/users /etc/freeradius/3.0/users
+    if [ -f /root/users.bak ]; then
+        cp /root/users.bak /etc/freeradius/3.0/users
+    else
+        cp /etc/freeradius/3.0/users /root/users.bak
+    fi
+    cat /root/users >> /etc/freeradius/3.0/users
     echo "I configured radius to authenticate only teachers"
 else
+    if [ -f /root/users.bak ]; then
+        cp /root/users.bak /etc/freeradius/3.0/users
+    fi
     echo "I configured radius to authenticate any user"
 fi
 
