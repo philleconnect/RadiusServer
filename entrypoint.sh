@@ -43,16 +43,22 @@ if ( $RADIUS_REQUIRE_TEACHER ); then
     #    cp /etc/freeradius/3.0/users /root/users.bak
     #fi
     #cat /root/users >> /etc/freeradius/3.0/users
+    if [ ! -f /root/default.bak ]; then
+        cp /etc/freeradius/3.0/sites-enabled/default /root/default.bak
+    fi
     cp /root/default /etc/freeradius/3.0/sites-enabled/default
     echo "I configured radius to authenticate only teachers"
 else
     #if [ -f /root/users.bak ]; then
     #    cp /root/users.bak /etc/freeradius/3.0/users
     #fi
+    if [ -f /root/default.bak ]; then
+        cp /root/default.bak /etc/freeradius/3.0/sites-enabled/default
+    fi
     echo "I configured radius to authenticate any user"
 fi
 
 
-#freeradius -f
+freeradius -f
 #service freeradius start
-while true; do sleep 1; done # keep container running for debugging...
+#while true; do sleep 1; done # keep container running for debugging...
