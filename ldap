@@ -5,7 +5,8 @@ ldap {
         password = SLAPD_PASSWORD
         base_dn = 'dc=SLAPD_DOMAIN1,dc=SLAPD_DOMAIN0'
         update {
-                control:Password-With-Header    += 'userPassword'
+                #control:Password-With-Header    += 'userPassword'
+                control:Password-With-Header    += 'sambaNTPassword'
         }
         user {
                 base_dn = "ou=users,${..base_dn}"

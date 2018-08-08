@@ -37,7 +37,7 @@ server default {
         filter_username
         preprocess
 #        chap
-#        mschap
+        mschap
 #        digest
         suffix
         eap {
