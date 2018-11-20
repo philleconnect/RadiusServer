@@ -20,4 +20,4 @@ services:
 networks:
     default:
         external:
-            name: philleconnect_network
+            name: servercontainers_philleconnect
