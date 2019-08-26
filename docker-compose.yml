@@ -10,15 +10,15 @@ services:
     #depends_on:
     #  - ldap
     # Wait for the LDAP to be up and running:
-    command: >
-      /bin/bash -c "
-        while ! nc -z ldap 389;
-        do
-          echo 'waiting for LDAP...';
-          sleep 1;
-        done;
-        echo 'LDAP-Server found, starting now';
-      "
+    #command: >
+    #  /bin/bash -c "
+    #    while ! nc -z ldap 389;
+    #    do
+    #      echo 'waiting for LDAP...';
+    #      sleep 1;
+    #    done;
+    #    echo 'LDAP-Server found, starting now';
+    #  "
     restart: always
     ports:
      - "1812:1812/udp"
