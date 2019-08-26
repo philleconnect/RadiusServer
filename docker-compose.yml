@@ -7,8 +7,8 @@ services:
     #image: philleconnect/radiusserver:latest
     container_name: radiusserver
     hostname: radiusserver
-    depends_on:
-      - ldap
+    #depends_on:
+    #  - ldap
     # Wait for the LDAP to be up and running:
     command: >
       /bin/bash -c "
