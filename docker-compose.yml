@@ -26,7 +26,7 @@ services:
      - "18120:18120"
     env_file:
      - ./settings.env
-    tty: true
+#    tty: true
 #    networks:
 #      - philleconnect
 

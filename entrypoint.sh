@@ -60,6 +60,6 @@ fi
 
 
 #freeradius -f
-radiusd
+radiusd -f
 #service freeradius start
 #while true; do sleep 1; done # keep container running for debugging...
