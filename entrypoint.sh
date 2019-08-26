@@ -59,6 +59,7 @@ else
 fi
 
 
-freeradius -X
+#freeradius -f
+radiusd
 #service freeradius start
 #while true; do sleep 1; done # keep container running for debugging...
