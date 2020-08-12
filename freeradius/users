@@ -1,6 +1,6 @@
-DEFAULT LDAP-Group == "teachers", Auth-Type := Accept
+DEFAULT LDAP-Group == "wifi", Auth-Type := Accept
         Reply-Message = "OK You are a member of the required group"
-DEFAULT LDAP-Group != "teachers", Auth-Type := Reject
+DEFAULT LDAP-Group != "wifi", Auth-Type := Reject
         Reply-Message = "OOPS You are not a member of the required group"
 
 # static users may be included here, but this is only configured if the 
