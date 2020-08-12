@@ -100,7 +100,7 @@ server default {
             remove_reply_message_if_eap
         }
 
-        if (LDAP-Group != "teachers") {
+        if (LDAP-Group != "wifi") {
             reject
         }
     } 

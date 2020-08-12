@@ -8,7 +8,7 @@ ENV VERSION "1"
 
 USER root
 
-RUN apt-get update && apt-get install -y --no-install-recommends freeradius freeradius-ldap freeradius-utils nano netcat
+RUN apt-get update && apt-get install -y --no-install-recommends freeradius freeradius-ldap freeradius-utils nano
 
 COPY clients.conf /root/clients.conf
 COPY users /root/users
