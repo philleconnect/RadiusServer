@@ -3,7 +3,7 @@
         {
             "name":"freeradius",
             "hostname":"freeradius",
-            "url":"https://github.com/philleconnect/RadiusServer/releases/download/2.0.1/freeradius.tar.gz",
+            "url":"https://github.com/philleconnect/RadiusServer/releases/download/v2.0.2/freeradius.tar.gz",
             "ports":[
                 {
                     "external":"1812/udp",
