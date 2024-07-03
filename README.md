@@ -1,3 +1,5 @@
+__Archived: Not actively maintained anymore!__
+
 # Radius-Server for WiFi-Authentication
 
 This optional container connects to the LDAP-Server and provides radius user authentication for your WiFi.
